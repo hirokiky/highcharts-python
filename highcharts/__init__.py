@@ -26,5 +26,8 @@ class Chart(DictBacked):
     def add_series(self, series):
         self.series.append(series)
 
+    def to_json(self, cls=encoders.ObjectEncoder):
+        return encoders.dump_json(self, cls=cls)
+
     def __str__(self):
-        return encoders.dump_json(self)
+        return self.to_json()
