@@ -18,6 +18,6 @@ class ObjectEncoder(json.JSONEncoder):
             return super(ObjectEncoder, self).default(obj)
 
 
-def dump_json(chart):
+def dump_json(chart, cls=ObjectEncoder):
     '''Dumps a chart to json'''
-    return json.dumps(chart, cls=ObjectEncoder)
+    return json.dumps(chart, cls=cls)
